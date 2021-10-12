@@ -3,20 +3,8 @@
     /** This enables you to avoid using undeclared variables */
     'use strict';
 
-    /** Get the root element */
-    let documentElement = window.document.documentElement,
-        support = { animations: Modernizr.cssanimations },
-        animEndEventNames = {
-            'WebkitAnimation': 'webkitAnimationEnd',
-            'OAnimation': 'oAnimationEnd',
-            'msAnimation': 'MSAnimationEnd',
-            'animation': 'animationend'
-        },
-        // animation end event name
-        animEndEventName = animEndEventNames[Modernizr.prefixed('animation')];
-
     /**
-     * extend obj function
+     * extend object function
      */
     function extend(a, b) {
         for (let key in b) {
@@ -45,11 +33,11 @@
         notificationWrapper: document.body,
         // the notificationMessage
         notificationMessage: 'Hello!',
-        // layout type: growl|attached|bar|other
-        layout: 'growl',
-        // effects for the specified layout:
-        // for growl layout: scale|slide|genie|jelly
-        effect: 'slide',
+        // notificationLayout type: growl|attached|bar|other
+        notificationLayout: 'growl',
+        // effects for the specified notificationLayout:
+        // for growl notificationLayout: scale|slide|genie|jelly
+        notificationEffect: 'slide',
         // notice, warning, error, success
         // will add class ns-type-warning, ns-type-error or ns-type-success
         type: 'error',
@@ -68,7 +56,7 @@
     NotificationFx.prototype._init = function() {
         // create HTML structure
         this.ntf = document.createElement('div');
-        this.ntf.className = 'ns-box ns-' + this.options.layout + ' ns-effect-' + this.options.effect + ' ns-type-' + this.options.type;
+        this.ntf.className = 'ns-box ns-' + this.options.notificationLayout + ' ns-effect-' + this.options.notificationEffect + ' ns-type-' + this.options.type;
         let strinner = '<div class="ns-box-inner">';
         strinner += this.options.notificationMessage;
         strinner += '</div>';
