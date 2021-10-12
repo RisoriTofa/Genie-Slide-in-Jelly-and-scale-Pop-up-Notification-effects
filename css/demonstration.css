@@ -1,3 +1,23 @@
+/* You can choose colors quickly from the color templates below*/
+
+:root {
+    --white: #fff;
+    --black: #00000099;
+    --light-black: #333;
+    --light-blue: #97d2f1;
+    --bright-blue: #6cc1ed;
+    --dark-blue: #00a2d3;
+    --navy-blue: #729DBF;
+    --light-green: #67c58f;
+    --medium-green: #72BF7B;
+    --green-blue: #00cfbe;
+    --indigo: #415f76;
+    --light-purple: #7772bf;
+    --purple: #484860;
+    --light-yellow: #B3BF72;
+    --light-orange: #BFA372;
+}
+
 *,
 *:after,
 *:before {
@@ -21,7 +41,7 @@ body {
 }
 
 body {
-    background: #6CC1EDFF;
+    background: var(--bright-blue);
     color: #f5f3ec;
     font-weight: 400;
     font-size: 1em;
@@ -48,63 +68,6 @@ a:focus {
 
 .container {
     min-height: 100%;
-}
-
-
-/* You can choose colors quickly from the color templates below*/
-
-.color-2 {
-    background: #729DBF;
-}
-
-.color-3 {
-    background: #72BF7B;
-}
-
-.color-4 {
-    background: #484860;
-}
-
-.color-5 {
-    background: #7772BF;
-}
-
-.color-6 {
-    background: #B3BF72;
-}
-
-.color-7 {
-    background: #72BFB9;
-}
-
-.color-8 {
-    background: #BFA372;
-}
-
-.color-9 {
-    background: #6cc1ed;
-}
-
-.color-9 {
-    color: rgba(0, 0, 0, 0.6);
-}
-
-.color-10 {
-    background: #00cfbe;
-}
-
-.color-11 {
-    background: #00a2d3;
-}
-
-:root {
-    --white: #fff;
-    --black: #00000099;
-    --light-blue: #97d2f1;
-    --dark-blue: #00a2d3;
-    --light-green: #67c58f;
-    --dark-green: #00cfbe;
-    --indigo: #415f76;
 }
 
 
@@ -310,6 +273,7 @@ a:focus {
         padding: 2em;
         font-size: 90%;
     }
+
     .column:first-child {
         text-align: center;
         box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.1);
@@ -320,6 +284,7 @@ a:focus {
     .notifications-header h1 {
         font-size: 2.5em;
     }
+
     .notifications-top a {
         font-size: 1.6em;
         border: 2px solid black;

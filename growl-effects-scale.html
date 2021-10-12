@@ -63,11 +63,11 @@
                     // create the notification
                     let notification = new NotificationFx({
 
-                        // Added an apostrophe (') escape character in the notificationnotificationMessage to avoid errors
+                        // Added an apostrophe (') escape character in the notificationMessage to avoid errors
                         notificationMessage: '<p>Hello there! I\'m a classic notification, but I have some elastic jelliness thanks to <a href="http://bouncejs.com/">bounce.js</a>. </p>',
                         notificationLayout: 'growl',
                         notificationEffect: 'scale',
-                        type: 'notice', // notice, warning, error or success
+                        notificationType: 'notice', // notice, warning, error or success
                         totalTimeToLeave: 6000,
                         // On close of the notification, enable the button
                         onClose: function() {

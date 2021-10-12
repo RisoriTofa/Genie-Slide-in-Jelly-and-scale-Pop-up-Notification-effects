@@ -3,6 +3,19 @@
     /** This enables you to avoid using undeclared variables */
     'use strict';
 
+
+    /** Get the root element */
+         let documentElement = window.document.documentElement,
+            support = { animations: Modernizr.cssanimations },
+            animEndEventNames = {
+                'WebkitAnimation': 'webkitAnimationEnd',
+                'OAnimation': 'oAnimationEnd',
+                'msAnimation': 'MSAnimationEnd',
+                'animation': 'animationend'
+            },
+            // animation end event name
+            animEndEventName = animEndEventNames[Modernizr.prefixed('animation')];
+
     /**
      * extend object function
      */
@@ -33,14 +46,14 @@
         notificationWrapper: document.body,
         // the notificationMessage
         notificationMessage: 'Hello!',
-        // notificationLayout type: growl|attached|bar|other
+        // notification Layout type: growl|attached|bar|other
         notificationLayout: 'growl',
         // effects for the specified notificationLayout:
         // for growl notificationLayout: scale|slide|genie|jelly
         notificationEffect: 'slide',
         // notice, warning, error, success
-        // will add class ns-type-warning, ns-type-error or ns-type-success
-        type: 'error',
+        // will add class notification-type-warning, notification-type-error or notification-type-success
+        notificationType: 'error',
         // if the user does not close the notification then we remove it
         // after the following time
         totalTimeToLeave: 6000,
@@ -56,12 +69,12 @@
     NotificationFx.prototype._init = function() {
         // create HTML structure
         this.ntf = document.createElement('div');
-        this.ntf.className = 'ns-box ns-' + this.options.notificationLayout + ' ns-effect-' + this.options.notificationEffect + ' ns-type-' + this.options.type;
-        let strinner = '<div class="ns-box-inner">';
-        strinner += this.options.notificationMessage;
-        strinner += '</div>';
-        strinner += '<span class="ns-close"></span></div>';
-        this.ntf.innerHTML = strinner;
+        this.ntf.className = 'ns-box ns-' + this.options.notificationLayout + ' ns-effect-' + this.options.notificationEffect + ' ns-type-' + this.options.notificationType;
+        let innerString = '<div class="ns-box-inner">';
+        innerString += this.options.notificationMessage;
+        innerString += '</div>';
+        innerString += '<span class="ns-close"></span></div>';
+        this.ntf.innerHTML = innerString;
 
         // append to body or the element specified in options.notificationWrapper
         // This creates the notification before the first child in the HTML file.
