@@ -48,29 +48,29 @@
     <script src="js/notificationFx.js"></script>
     <script>
         (function() {
-            let bttn = document.getElementById('notification-trigger');
+            let notificationButton = document.getElementById('notification-trigger');
 
             // make sure..
-            bttn.disabled = false;
+            notificationButton.disabled = false;
 
-            bttn.addEventListener('click', function() {
+            notificationButton.addEventListener('click', function() {
                 // simulate loading (for demo purposes only)
-                classEditor.add(bttn, 'active');
+                classEditor.add(notificationButton, 'active');
                 setTimeout(function() {
 
-                    classEditor.remove(bttn, 'active');
+                    classEditor.remove(notificationButton, 'active');
 
                     // create the notification
                     let notification = new NotificationFx({
 
-                        // Added an apostrophe (') escape character in the notificationnotificationnotificationMessage to avoid errors
+                        // Added an apostrophe (') escape character in the notificationMessage to avoid errors
                         notificationMessage: '<p>Hello there! I\'m a classic notification, but I have some elastic jelliness thanks to <a href="http://bouncejs.com/">bounce.js</a>. </p>',
                         notificationLayout: 'growl',
                         notificationEffect: 'jelly',
                         notificationType: 'notice', // notice, warning, error or success
                         totalTimeToLeave: 6000,
                         onClose: function() {
-                            bttn.disabled = false;
+                            notificationButton.disabled = false;
                         }
                     });
 

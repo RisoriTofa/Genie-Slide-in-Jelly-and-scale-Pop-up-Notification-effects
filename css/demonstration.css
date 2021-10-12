@@ -96,15 +96,6 @@ a:focus {
 
 /* To Navigation Style */
 
-.notifications-top {
-    width: 100%;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 0.69em;
-    text-align: center;
-    padding: 2em 0;
-}
-
 
 /* Demo Buttons Style */
 
@@ -201,7 +192,6 @@ a:focus {
     line-height: 1.2;
 }
 
-
 /* Notification progress bar */
 
 
@@ -283,12 +273,5 @@ a:focus {
 @media screen and (max-width: 25em) {
     .notifications-header h1 {
         font-size: 2.5em;
-    }
-
-    .notifications-top a {
-        font-size: 1.6em;
-        border: 2px solid black;
-        padding: 0.5em;
-        border-radius: 3px;
     }
 }

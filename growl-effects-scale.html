@@ -48,17 +48,17 @@
     <script src="js/notificationFx.js"></script>
     <script>
         (function() {
-            let bttn = document.getElementById('notification-trigger');
+            let notificationButton = document.getElementById('notification-trigger');
 
             // make sure..
-            bttn.disabled = false;
+            notificationButton.disabled = false;
 
-            bttn.addEventListener('click', function() {
+            notificationButton.addEventListener('click', function() {
                 // simulate loading (for demo purposes only)
-                classEditor.add(bttn, 'active');
+                classEditor.add(notificationButton, 'active');
                 setTimeout(function() {
 
-                    classEditor.remove(bttn, 'active');
+                    classEditor.remove(notificationButton, 'active');
 
                     // create the notification
                     let notification = new NotificationFx({
@@ -71,7 +71,7 @@
                         totalTimeToLeave: 6000,
                         // On close of the notification, enable the button
                         onClose: function() {
-                            bttn.disabled = false;
+                            notificationButton.disabled = false;
                         }
                     });
 

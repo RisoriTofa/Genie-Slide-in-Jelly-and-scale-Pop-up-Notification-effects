@@ -1,6 +1,8 @@
 /*!
- * classEditor - class helper functions
- * 
+ * classEditor - It contains class helper functions
+ *
+ * These functions include:-
+ *
  * classEditor.has( element, 'my-class' ) -> true/false
  * classEditor.add( element, 'my-new-class' )
  * classEditor.remove( element, 'my-unwanted-class' )
@@ -22,49 +24,49 @@ function classReg( className ) {
 
 // classList support for class management
 // although to be fair, the api sucks because it won't accept multiple classes at once
-  let hasClass, addClass, removeClass;
+  let hasThisClass, addsClass, removesClass;
 
   if ( 'classList' in document.documentElement ) {
-  hasClass = function( element, c ) {
+  hasThisClass = function( element, c ) {
     return element.classList.contains( c );
   };
-  addClass = function( element, c ) {
+  addsClass = function( element, c ) {
     element.classList.add( c );
   };
-  removeClass = function( element, c ) {
+  removesClass = function( element, c ) {
     element.classList.remove( c );
   };
 }
 else {
-  hasClass = function( element, c ) {
+  hasThisClass = function( element, c ) {
     return classReg( c ).test( element.className );
   };
-  addClass = function( element, c ) {
-    if ( !hasClass( element, c ) ) {
+  addsClass = function( element, c ) {
+    if ( !hasThisClass( element, c ) ) {
       element.className = element.className + ' ' + c;
     }
   };
-  removeClass = function( element, c ) {
+  removesClass = function( element, c ) {
     element.className = element.className.replace( classReg( c ), ' ' );
   };
 }
 
-function toggleClass( element, c ) {
-  let fn = hasClass( element, c ) ? removeClass : addClass;
+function togglesClass( element, c ) {
+  let fn = hasThisClass( element, c ) ? removesClass : addsClass;
   fn( element, c );
 }
 
 let classEditor = {
   // full names
-  hasClass: hasClass,
-  addClass: addClass,
-  removeClass: removeClass,
-  toggleClass: toggleClass,
+  hasClass: hasThisClass,
+  addClass: addsClass,
+  removeClass: removesClass,
+  toggleClass: togglesClass,
   // short names
-  has: hasClass,
-  add: addClass,
-  remove: removeClass,
-  toggle: toggleClass
+  has: hasThisClass,
+  add: addsClass,
+  remove: removesClass,
+  toggle: togglesClass
 };
 
 // transport

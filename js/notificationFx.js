@@ -5,8 +5,7 @@
 
 
     /** Get the root element */
-         let documentElement = window.document.documentElement,
-            support = { animations: Modernizr.cssanimations },
+         let support = { animations: Modernizr.cssanimations },
             animEndEventNames = {
                 'WebkitAnimation': 'webkitAnimationEnd',
                 'OAnimation': 'oAnimationEnd',
