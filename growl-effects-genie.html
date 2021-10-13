@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
@@ -51,7 +51,7 @@
 
     <!-- Adding the scripts -->
     <script src="js/classEditor.js"></script>
-    <script src="js/notificationFx.js"></script>
+    <script src="js/notificationFunction.js"></script>
     <script>
         (function() {
             let notificationButton = document.getElementById('notification-trigger');
@@ -67,10 +67,10 @@
                     classEditor.remove(notificationButton, 'active');
 
                     // create the notification
-                    let notification = new NotificationFx({
+                    let notification = new NotificationFunction({
 
                         // Added an apostrophe (') escape character in the notification's Message to avoid errors
-                        notificationMessage: '<p>Hello there! I\'m a classic notification, but I have some elastic jelliness thanks to <a href="http://bouncejs.com/">bounce.js</a>. </p>',
+                        notificationMessage: '<p>Hello there!!! I\'m a classic notification pop-up, but I have some Jelly elasticity thanks to <a href="http://bouncejs.com/">bounce.js</a>. </p>',
                         notificationLayout: 'growl',
                         notificationEffect: 'genie',
                         notificationType: 'notice', // notice, warning, error or success
