@@ -1,28 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
 
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Notification Styles | Growl-Style</title>
     <link rel="stylesheet" type="text/css" href="css/normalization.css" />
-    <link rel="stylesheet" type="text/css" href="css/demonstration.css" />
     <link rel="stylesheet" type="text/css" href="css/ns-default.css" />
-    <link rel="stylesheet" type="text/css" href="css/growl-notification-style.css" />
     <script src="js/modernizr.custom.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/growl-notification-style.css" />
+    <link rel="stylesheet" type="text/css" href="css/demonstration.css" />
 
 </head>
 
 <body>
-    <div class="container">
+    <div class="main-container">
         <!-- Top Navigation -->
 
         <header class="notifications-header">
-            <h1>Notification Styles <span>Simple ideas &amp; effects for website notifications</span></h1>
+            <h1>Notification Styles
+                <span>Simple, easy and effective ideas &amp; animation effects for website notifications</span>
+            </h1>
         </header>
-        <div class="main clearfix">
+        <div class="main clear-fix">
             <div class="column">
                 <p class="small">Click on the button to show the notification:</p>
                 <button id="notification-trigger" class="progress-button">
@@ -32,7 +34,7 @@
             </div>
             <div class="column">
                 <nav class="notifications-demos">
-                    <h3>Growl-like</h3>
+                    <h3>Growl-like: </h3>
                     <div>
                         <a href="growl-effects-scale.html">Scale</a>
                         <a class="current-demo" href="growl-effects-jelly.html">Jelly</a>
@@ -43,14 +45,14 @@
             </div>
         </div>
     </div>
-    <!-- /container -->
+    <!-- /main-container -->
     <script src="js/classEditor.js"></script>
     <script src="js/notificationFx.js"></script>
     <script>
         (function() {
             let notificationButton = document.getElementById('notification-trigger');
 
-            // make sure..
+            // make sure the button is disabled
             notificationButton.disabled = false;
 
             notificationButton.addEventListener('click', function() {
