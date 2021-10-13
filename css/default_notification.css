@@ -1,15 +1,15 @@
 /* Common, default styles for the notification box */
 
 .ns-box {
-    padding: 22px;
     position: fixed;
-    line-height: 1.4;
-    color: rgba(250, 251, 255, 0.95);
-    background: rgba(42, 45, 50, 0.85);
     font-size: 90%;
     font-family: 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
-    pointer-events: none;
+    padding: 22px;
+    line-height: 1.4;
     z-index: 1000;
+    background: rgba(42, 45, 50, 0.85);
+    color: rgba(250, 251, 255, 0.95);
+    pointer-events: none;
 }
 
 /* Notification 'on show' styling */
@@ -19,19 +19,18 @@
 
 /* Notification link styling */
 .ns-box a {
-    font-weight: 700;
-    opacity: 0.7;
     color: inherit;
+    opacity: 0.7;
+    font-weight: 700;
 }
 
-.ns-box a:focus,
-.ns-box a:hover {
+.ns-box a:hover, .ns-box a:focus
+ {
     opacity: 1;
 }
 
 /* Visible notification styling */
-.ns-box.ns-visible,
-.ns-box.ns-show {
+.ns-box.ns-show, .ns-box.ns-visible {
     pointer-events: auto;
 }
 
@@ -42,45 +41,43 @@
 
 /* `on close` notification styling */
 .ns-close {
-    position: absolute;
+    overflow: hidden;
+    top: 4px;
     right: 4px;
     width: 20px;
     height: 20px;
-    top: 4px;
-    overflow: hidden;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    cursor: pointer;
     text-indent: 100%;
+    position: absolute;
+    cursor: pointer;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
-.ns-close:focus, .ns-close:hover {
+.ns-close:hover, .ns-close:focus {
     outline: none;
 }
 
 /* Notification 'on close' before and after styling */
-.ns-close::before,
-.ns-close::after {
-    position: absolute;
+.ns-close::after, .ns-close::before {
+    left: 50%;
+    top: 50%;
+    height: 60%;
+    width: 3px;
     content: '';
     background: #6e6e6e;
-    width: 3px;
-    height: 60%;
-    top: 50%;
-    left: 50%;
+    position: absolute;
 }
 
-.ns-close:hover::before,
-.ns-close:hover::after {
+.ns-close:hover::after, .ns-close:hover::before {
     background: var(--white);
 }
 
 .ns-close::before {
-    transform: translate(-50%, -50%) rotate(45deg);
     -webkit-transform: translate(-50%, -50%) rotate(45deg);
+    transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .ns-close::after {
-    transform: translate(-50%, -50%) rotate(-45deg);
     -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+    transform: translate(-50%, -50%) rotate(-45deg);
 }

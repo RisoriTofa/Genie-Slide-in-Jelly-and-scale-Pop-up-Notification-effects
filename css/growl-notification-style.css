@@ -1,10 +1,10 @@
 /* Growl-style notifications */
 
 .ns-growl {
-    max-width: 300px;
-    border-radius: 5px;
-    left: 30px;
     top: 30px;
+    left: 30px;
+    border-radius: 5px;
+    max-width: 300px;
 }
 
 .ns-growl p {
@@ -12,10 +12,10 @@
     margin: 0;
 }
 
-[class*=" ns-effect-"].ns-growl.ns-hide,
-[class^="ns-effect-"].ns-growl.ns-hide {
-    animation-direction: reverse;
+[class^="ns-effect-"].ns-growl.ns-hide,
+[class*=" ns-effect-"].ns-growl.ns-hide {
     -webkit-animation-direction: reverse;
+    animation-direction: reverse;
 }
 
 
@@ -25,8 +25,8 @@
 /* Scale */
 
 .ns-effect-scale {
-    box-shadow: 0 25px 10px -15px var(--light-green-shadow);
     background: var(--light-green);
+    box-shadow: 0 25px 10px -15px var(--light-green-shadow);
 }
 
 .ns-effect-scale a {
@@ -93,35 +93,33 @@
     color: var(--sky-blue);
 }
 
-.ns-effect-jelly a:hover,
-.ns-effect-jelly a:focus {
+.ns-effect-jelly a:focus, .ns-effect-jelly a:hover {
     color: var(--white);
 }
 
-.ns-effect-jelly .ns-close::before,
-.ns-effect-jelly .ns-close::after {
+.ns-effect-jelly .ns-close::after, .ns-effect-jelly .ns-close::before {
     background: var(--sky-blue);
 }
 
-.ns-effect-jelly .ns-close:hover::before,
-.ns-effect-jelly .ns-close:hover::after {
+
+.ns-effect-jelly .ns-close:hover::after, .ns-effect-jelly .ns-close:hover::before {
     background: var(--white);
 }
 
 .ns-effect-jelly.ns-show {
     -webkit-animation-name: animJelly;
-    animation-name: jellyAnimation;
     -webkit-animation-duration: 1s;
-    animation-duration: 1s;
     -webkit-animation-timing-function: linear;
+    animation-name: jellyAnimation;
+    animation-duration: 1s;
     animation-timing-function: linear;
 }
 
 .ns-effect-jelly.ns-hide {
-    -webkit-animation-name: animFade;
     animation-name: animFade;
-    -webkit-animation-duration: 0.3s;
     animation-duration: 0.3s;
+    -webkit-animation-name: animFade;
+    -webkit-animation-duration: 0.3s;
 }
 
 @-webkit-keyframes animFade {
@@ -547,27 +545,26 @@
 /* Slide */
 
 .ns-effect-slide {
-    background: var(--deep-dark-blue);
-    top: auto;
     bottom: 30px;
+    top: auto;
+    background: var(--deep-dark-blue);
 }
 
-.ns-effect-slide .ns-close::before,
-.ns-effect-slide .ns-close::after {
+.ns-effect-slide .ns-close::after, .ns-effect-slide .ns-close::before
+ {
     background: var(--light-black);
 }
 
-.ns-effect-slide .ns-close:hover::before,
-.ns-effect-slide .ns-close:hover::after {
+.ns-effect-slide .ns-close:hover::before, .ns-effect-slide .ns-close:hover::after {
     background: var(--white);
 }
 
 .ns-effect-slide.ns-show {
     -webkit-animation-name: animSlideElastic;
-    animation-name: slideInElasticAnimation;
     -webkit-animation-duration: 1s;
-    animation-duration: 1s;
     -webkit-animation-timing-function: linear;
+    animation-name: slideInElasticAnimation;
+    animation-duration: 1s;
     animation-timing-function: linear;
 }
 
@@ -1173,15 +1170,14 @@
 
 @media screen and (max-width: 25em) {
     .ns-growl {
-        top: 10px;
-        left: 10px;
-        right: 10px;
         max-width: none;
+        top: 10px;
+        right: 10px;
+        left: 10px;
     }
 
-    .ns-effect-slide,
-    .ns-effect-genie {
-        top: auto;
+    .ns-effect-genie, .ns-effect-slide {
         bottom: 10px;
+        top: auto;
     }
 }
