@@ -3,7 +3,7 @@
  *
  * These functions include:-
  *
- * classEditor.has( element, 'my-class' ) -> true/false
+ * classEditor.has( element, 'my-current-class' ) -> true/false
  * classEditor.add( element, 'my-new-class' )
  * classEditor.remove( element, 'my-unwanted-class' )
  * classEditor.toggle( element, 'my-class' )
@@ -12,48 +12,48 @@
 /*jshint browser: true, strict: true, undef: true */
 /*global define: false */
 
-( function( window ) {
+( function( window, document ) {
 
 'use strict';
 
 // class helper functions
 
-function classReg( className ) {
-  return new RegExp("(^|\\s+)" + className + "(\\s+|$)");
+function class_Regex( class_name ) {
+  return new RegExp("(^|\\s+)" + class_name + "(\\s+|$)");
 }
 
 // classList support for class management
-// although to be fair, the api sucks because it won't accept multiple classes at once
+// To be fair, the api won't accept at once multiple classes
   let hasThisClass, addsClass, removesClass;
 
   if ( 'classList' in document.documentElement ) {
-  hasThisClass = function( element, c ) {
-    return element.classList.contains( c );
+  hasThisClass = function( element, Class ) {
+    return element.classList.contains( Class );
   };
-  addsClass = function( element, c ) {
-    element.classList.add( c );
+  addsClass = function( element, Class ) {
+    element.classList.add( Class );
   };
-  removesClass = function( element, c ) {
-    element.classList.remove( c );
+  removesClass = function( element, Class ) {
+    element.classList.remove( Class );
   };
 }
 else {
-  hasThisClass = function( element, c ) {
-    return classReg( c ).test( element.className );
+  hasThisClass = function( element, Class ) {
+    return class_Regex( Class ).test( element.className );
   };
-  addsClass = function( element, c ) {
-    if ( !hasThisClass( element, c ) ) {
+  addsClass = function( element, Class ) {
+    if ( !hasThisClass( element, Class ) ) {
       element.className = element.className + ' ' + c;
     }
   };
-  removesClass = function( element, c ) {
-    element.className = element.className.replace( classReg( c ), ' ' );
+  removesClass = function( element, Class ) {
+    element.className = element.className.replace( class_Regex( Class ), ' ' );
   };
 }
 
-function togglesClass( element, c ) {
-  let fn = hasThisClass( element, c ) ? removesClass : addsClass;
-  fn( element, c );
+function togglesClass( element, Class ) {
+  let fn = hasThisClass( element, Class ) ? removesClass : addsClass;
+  fn( element, Class );
 }
 
 let classEditor = {
@@ -77,4 +77,4 @@ if ( typeof define === 'function' ) {
   window.classEditor = classEditor;
 }
 
-})( window );
+})( window, document );
