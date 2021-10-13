@@ -1,3 +1,5 @@
+
+
 /* Growl-style notifications */
 
 .ns-growl {
@@ -25,27 +27,27 @@
 /* Scale */
 
 .ns-effect-scale {
-    background: #67c58f;
-    box-shadow: 0 25px 10px -15px rgba(0, 0, 0, 0.05);
+    background: var(--light-green);
+    box-shadow: 0 25px 10px -15px var(--light-green-shadow);
 }
 
 .ns-effect-scale a {
-    color: #1f8a4c;
+    color: var(--forest-green);
 }
 
 .ns-effect-scale a:hover,
 .ns-effect-scale a:focus {
-    color: #fff;
+    color: var(--white);
 }
 
 .ns-effect-scale .ns-close::before,
 .ns-effect-scale .ns-close::after {
-    background: #1f8a4c;
+    background: var(--forest-green);
 }
 
 .ns-effect-scale .ns-close:hover::before,
 .ns-effect-scale .ns-close:hover::after {
-    background: #fff;
+    background: var(--white);
 }
 
 .ns-effect-scale.ns-show,
@@ -84,27 +86,27 @@
 /* Jelly */
 
 .ns-effect-jelly {
-    background: #97d2f1;
+    background: var(--light-blue);
     max-width: 280px;
 }
 
 .ns-effect-jelly a {
-    color: #5699bc;
+    color: var(--sky-blue);
 }
 
 .ns-effect-jelly a:hover,
 .ns-effect-jelly a:focus {
-    color: #fff;
+    color: var(--white);
 }
 
 .ns-effect-jelly .ns-close::before,
 .ns-effect-jelly .ns-close::after {
-    background: #5699bc;
+    background: var(--sky-blue);
 }
 
 .ns-effect-jelly .ns-close:hover::before,
 .ns-effect-jelly .ns-close:hover::after {
-    background: #fff;
+    background: var(--white);
 }
 
 .ns-effect-jelly.ns-show {
@@ -546,19 +548,19 @@
 /* Slide */
 
 .ns-effect-slide {
-    background: rgba(65, 95, 118, 0.8);
+    background: var(--deep-dark-blue);
     top: auto;
     bottom: 30px;
 }
 
 .ns-effect-slide .ns-close::before,
 .ns-effect-slide .ns-close::after {
-    background: #333;
+    background: var(--light-black);
 }
 
 .ns-effect-slide .ns-close:hover::before,
 .ns-effect-slide .ns-close:hover::after {
-    background: #fff;
+    background: var(--white);
 }
 
 .ns-effect-slide.ns-show {
@@ -1100,18 +1102,18 @@
 .ns-effect-genie {
     top: auto;
     bottom: 30px;
-    background: #1c2e2d;
-    box-shadow: 0 7px 6px rgba(0, 0, 0, 0.2), 2px 4px 6px rgba(0, 0, 0, 0.5);
+    background: var(--hill-green);
+    box-shadow: 0 7px 6px var(--medium-black), 2px 4px 6px var(--black);
 }
 
 .ns-effect-genie .ns-close::after,
 .ns-effect-genie .ns-close::before {
-    background: #0eada0;
+    background: var(--blue-green);
 }
 
 .ns-effect-genie .ns-close:hover::after,
 .ns-effect-genie .ns-close:hover::before {
-    background: #fff;
+    background: var(--white);
 }
 
 .ns-effect-genie.ns-show,

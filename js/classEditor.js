@@ -12,69 +12,68 @@
 /*jshint browser: true, strict: true, undef: true */
 /*global define: false */
 
-( function( window, document ) {
+(function(window, document) {
 
-'use strict';
+    'use strict';
 
-// class helper functions
+    // class helper functions
 
-function class_Regex( class_name ) {
-  return new RegExp("(^|\\s+)" + class_name + "(\\s+|$)");
-}
-
-// classList support for class management
-// To be fair, the api won't accept at once multiple classes
-  let hasThisClass, addsClass, removesClass;
-
-  if ( 'classList' in document.documentElement ) {
-  hasThisClass = function( element, Class ) {
-    return element.classList.contains( Class );
-  };
-  addsClass = function( element, Class ) {
-    element.classList.add( Class );
-  };
-  removesClass = function( element, Class ) {
-    element.classList.remove( Class );
-  };
-}
-else {
-  hasThisClass = function( element, Class ) {
-    return class_Regex( Class ).test( element.className );
-  };
-  addsClass = function( element, Class ) {
-    if ( !hasThisClass( element, Class ) ) {
-      element.className = element.className + ' ' + c;
+    function class_Regex(class_name) {
+        return new RegExp("(^|\\s+)" + class_name + "(\\s+|$)");
     }
-  };
-  removesClass = function( element, Class ) {
-    element.className = element.className.replace( class_Regex( Class ), ' ' );
-  };
-}
 
-function togglesClass( element, Class ) {
-  let fn = hasThisClass( element, Class ) ? removesClass : addsClass;
-  fn( element, Class );
-}
+    // classList support for class management
+    // To be fair, the api won't accept at once multiple classes
+    let hasThisClass, addsClass, removesClass;
 
-let classEditor = {
-  // full names
-  hasClass: hasThisClass,
-  addClass: addsClass,
-  removeClass: removesClass,
-  toggleClass: togglesClass,
-  // short names
-  has: hasThisClass,
-  add: addsClass,
-  remove: removesClass,
-  toggle: togglesClass
-};
+    if ('classList' in document.documentElement) {
+        hasThisClass = function(element, Class) {
+            return element.classList.contains(Class);
+        };
+        addsClass = function(element, Class) {
+            element.classList.add(Class);
+        };
+        removesClass = function(element, Class) {
+            element.classList.remove(Class);
+        };
+    } else {
+        hasThisClass = function(element, Class) {
+            return class_Regex(Class).test(element.className);
+        };
+        addsClass = function(element, Class) {
+            if (!hasThisClass(element, Class)) {
+                element.className = element.className + ' ' + Class;
+            }
+        };
+        removesClass = function(element, Class) {
+            element.className = element.className.replace(class_Regex(Class), ' ');
+        };
+    }
 
-// transport
-if ( typeof define === 'function' ) {
-  define( classEditor );
-} else {
-  // browser global
-  window.classEditor = classEditor;
-}
+    function togglesClass(element, Class) {
+        let fn = hasThisClass(element, Class) ? removesClass : addsClass;
+        fn(element, Class);
+    }
 
-})( window, document );
+    let classEditor = {
+        // full names
+        hasClass: hasThisClass,
+        addClass: addsClass,
+        removeClass: removesClass,
+        toggleClass: togglesClass,
+        // short names
+        has: hasThisClass,
+        add: addsClass,
+        remove: removesClass,
+        toggle: togglesClass
+    };
+
+    // transport
+    if (typeof define === 'function') {
+        define(classEditor);
+    } else {
+        // browser global
+        window.classEditor = classEditor;
+    }
+
+})(window, document);

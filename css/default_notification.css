@@ -1,87 +1,86 @@
 /* Common, default styles for the notification box */
 
 .ns-box {
-	position: fixed;
-	background: rgba(42,45,50,0.85);
-	padding: 22px;
-	line-height: 1.4;
-	z-index: 1000;
-	pointer-events: none;
-	color: rgba(250,251,255,0.95);
-	font-size: 90%;
-	font-family: 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
+    padding: 22px;
+    position: fixed;
+    line-height: 1.4;
+    color: rgba(250, 251, 255, 0.95);
+    background: rgba(42, 45, 50, 0.85);
+    font-size: 90%;
+    font-family: 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
+    pointer-events: none;
+    z-index: 1000;
 }
 
 /* Notification 'on show' styling */
 .ns-box.ns-show {
-	pointer-events: auto;
+    pointer-events: auto;
 }
 
 /* Notification link styling */
 .ns-box a {
-	color: inherit;
-	opacity: 0.7;
-	font-weight: 700;
+    font-weight: 700;
+    opacity: 0.7;
+    color: inherit;
 }
 
-.ns-box a:hover,
-.ns-box a:focus {
-	opacity: 1;
+.ns-box a:focus,
+.ns-box a:hover {
+    opacity: 1;
+}
+
+/* Visible notification styling */
+.ns-box.ns-visible,
+.ns-box.ns-show {
+    pointer-events: auto;
 }
 
 /* Notification paragraph styling */
 .ns-box p {
-	margin: 0;
-}
-
-/* Visible notification styling */
-.ns-box.ns-show,
-.ns-box.ns-visible {
-	pointer-events: auto;
+    margin: 0;
 }
 
 /* `on close` notification styling */
 .ns-close {
-	width: 20px;
-	height: 20px;
-	position: absolute;
-	right: 4px;
-	top: 4px;
-	overflow: hidden;
-	text-indent: 100%;
-	cursor: pointer;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
+    position: absolute;
+    right: 4px;
+    width: 20px;
+    height: 20px;
+    top: 4px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    cursor: pointer;
+    text-indent: 100%;
 }
 
-.ns-close:hover, 
-.ns-close:focus {
-	outline: none;
+.ns-close:focus, .ns-close:hover {
+    outline: none;
 }
 
 /* Notification 'on close' before and after styling */
 .ns-close::before,
 .ns-close::after {
-	content: '';
-	position: absolute;
-	width: 3px;
-	height: 60%;
-	top: 50%;
-	left: 50%;
-	background: #6e6e6e;
+    position: absolute;
+    content: '';
+    background: #6e6e6e;
+    width: 3px;
+    height: 60%;
+    top: 50%;
+    left: 50%;
 }
 
 .ns-close:hover::before,
 .ns-close:hover::after {
-	background: #fff;
+    background: var(--white);
 }
 
 .ns-close::before {
-	-webkit-transform: translate(-50%,-50%) rotate(45deg);
-	transform: translate(-50%,-50%) rotate(45deg);
+    transform: translate(-50%, -50%) rotate(45deg);
+    -webkit-transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .ns-close::after {
-	-webkit-transform: translate(-50%,-50%) rotate(-45deg);
-	transform: translate(-50%,-50%) rotate(-45deg);
+    transform: translate(-50%, -50%) rotate(-45deg);
+    -webkit-transform: translate(-50%, -50%) rotate(-45deg);
 }

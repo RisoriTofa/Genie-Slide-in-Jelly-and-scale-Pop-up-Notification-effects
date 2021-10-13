@@ -8,10 +8,16 @@
     --light-black: #333;
     --light-blue: #97d2f1;
     --bright-blue: #6cc1ed;
+    --sky-blue: #5699bc;
     --dark-blue: #00a2d3;
     --navy-blue: #729DBF;
+    --deep-dark-blue: #415F76CC;
     --light-green: #67c58f;
+    --light-green-shadow: #0000000C;
     --medium-green: #72BF7B;
+    --forest-green: #1f8a4c;
+    --hill-green: #1c2e2d;
+    --blue-green: #0eada0;
     --green-blue: #00cfbe;
     --indigo: #415f76;
     --light-purple: #7772bf;
@@ -65,7 +71,7 @@ a {
 
 a:hover,
 a:focus {
-    color: #fff;
+    color: var(--white);
 }
 
 .main-container {
@@ -118,7 +124,7 @@ a:focus {
     letter-spacing: 1px;
     font-weight: 700;
     background: rgba(255, 255, 255, 0.3);
-    color: #fff;
+    color: var(--white);
     border-radius: 2px;
     font-size: 110%;
 }
