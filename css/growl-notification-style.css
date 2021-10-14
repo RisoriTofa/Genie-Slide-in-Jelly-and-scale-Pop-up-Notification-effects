@@ -21,7 +21,6 @@
 
 /* Individual effects */
 
-
 /* Scale */
 
 .ns-effect-scale {
@@ -550,8 +549,7 @@
     background: var(--deep-dark-blue);
 }
 
-.ns-effect-slide .ns-close::after, .ns-effect-slide .ns-close::before
- {
+.ns-effect-slide .ns-close::after, .ns-effect-slide .ns-close::before {
     background: var(--light-black);
 }
 

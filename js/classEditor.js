@@ -12,7 +12,7 @@
 /*jshint browser: true, strict: true, undef: true */
 /*global define: false */
 
-(function(window, document) {
+(function (window, document) {
 
     'use strict';
 
@@ -27,32 +27,32 @@
     let hasThisClass, addsClass, removesClass;
 
     if ('classList' in document.documentElement) {
-        hasThisClass = function(element, Class) {
+        hasThisClass = function (element, Class) {
             return element.classList.contains(Class);
         };
-        addsClass = function(element, Class) {
+        addsClass = function (element, Class) {
             element.classList.add(Class);
         };
-        removesClass = function(element, Class) {
+        removesClass = function (element, Class) {
             element.classList.remove(Class);
         };
     } else {
-        hasThisClass = function(element, Class) {
+        hasThisClass = function (element, Class) {
             return class_Regex(Class).test(element.className);
         };
-        addsClass = function(element, Class) {
+        addsClass = function (element, Class) {
             if (!hasThisClass(element, Class)) {
                 element.className = element.className + ' ' + Class;
             }
         };
-        removesClass = function(element, Class) {
+        removesClass = function (element, Class) {
             element.className = element.className.replace(class_Regex(Class), ' ');
         };
     }
 
     function togglesClass(element, Class) {
-        let fn = hasThisClass(element, Class) ? removesClass : addsClass;
-        fn(element, Class);
+        let functionFn = hasThisClass(element, Class) ? removesClass : addsClass;
+        functionFn(element, Class);
     }
 
     let classEditor = {

@@ -4,7 +4,7 @@
     'use strict';
 
 
-    /** Get the root element */
+    /** Get the root element and link the animation end event names*/
     let support = {animations: Modernizr.cssanimations},
         animEndEventNames = {
             'WebkitAnimation': 'webkitAnimationEnd',
@@ -99,7 +99,7 @@
     };
 
     /**
-     * init events
+     * initialize the notification events
      */
     NotificationFunction.prototype._initEvents = function () {
         let notification_self = this;
@@ -123,7 +123,7 @@
     };
 
     /**
-     * dismiss the notification
+     * dismisses the notification
      */
     NotificationFunction.prototype.dismiss = function () {
         let notification_self = this;
