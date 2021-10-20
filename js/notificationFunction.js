@@ -40,40 +40,41 @@
      * NotificationFunction options
      */
     NotificationFunction.prototype.options = {
-        // element to which the notification will be appended
-        // defaults to the document.body
+        // The element to which the notification will be appended to in the application
+        // The defaults are to the 'document.body' element
         notificationWrapper: document.body,
         // the notificationMessage
-        notificationMessage: 'Hello!!!',
-        // notification Layout type: growl|attached|bar|other
+        notificationMessage: 'Hello!!! Developer!',
         notificationLayout: 'growl',
-        // effects for the specified notification Layout:
-        // for growl notification Layout: scale|slide|genie|jelly
+        // The effects to be set for the specified notification Layout:
+        // for growl notification Layout: { genie || scale || jelly || slide } effects
         notificationEffect: 'slide',
-        // notice, warning, error, success
-        // will add class notification-type-warning, notification-type-error or notification-type-success
+        // error,warning, success, notice
+        // This step will add class notification-type-warning, notification-type-error or notification-type-success
         notificationType: 'error',
-        // if the user does not close the notification then we remove it
-        // after the following time
-        totalTimeToLeave: 6000,
-        // callbacks
+        // if the current user does not close the notification then it gets removed
+        // This is automatically after the following time
+        totalTimeToLeave: 5000,
+        // Some of the callback functions
         onClose: function () {
+            /*return the output of false*/
             return false;
         },
         onOpen: function () {
+            /*return the output of false*/
             return false;
         }
     };
 
     /**
-     * init function
-     * initialize and cache some vars
+     * initialization function
+     * initialize and cache some variables for the application
      */
     NotificationFunction.prototype._init = function () {
         // create HTML structure
         this.ntf = document.createElement('div');
-        this.ntf.className = 'ns-box ns-' + this.options.notificationLayout + ' ns-effect-' + this.options.notificationEffect + ' ns-type-' + this.options.notificationType;
-        let innerString = '<div class="ns-box-inner">';
+        this.ntf.className = 'ns-boxes ns-' + this.options.notificationLayout + ' ns-effect-' + this.options.notificationEffect + ' ns-type-' + this.options.notificationType;
+        let innerString = '<div class="ns-boxes-inner">';
         innerString += this.options.notificationMessage;
         innerString += '</div>';
         innerString += '<span class="ns-close"></span></div>';
@@ -147,10 +148,16 @@
             notification_self.options.notificationWrapper.removeChild(notification_self.ntf);
         };
 
-        if (support.animations) {
+        if (
+            /*Found in Modernizr file*/
+            support.animations
+        ) {
+            /*An event listener*/
             this.ntf.addEventListener(animEndEventName, onEndAnimationFn);
         } else {
+            /*Returns this function*/
             onEndAnimationFn();
+            /*End*/
         }
     };
 

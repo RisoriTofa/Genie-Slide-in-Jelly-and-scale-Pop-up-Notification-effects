@@ -26,45 +26,51 @@
     --light-orange: #BFA372;
 }
 
-*,
-*:after,
+/*All*/
+*, /*All elements after*/
+*:after, /*All elements before*/
 *:before {
+    /*These two set how the overall width and height is calculated*/
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
 }
 
-.clear-fix:after,
-.clear-fix:before {
+.clear-fixes:after,
+.clear-fixes:before {
+    /*No content*/
     content: '';
     display: table;
 }
 
-.clear-fix:after {
+.clear-fixes:after {
     clear: both;
 }
 
 html,
 body {
-    height: 100%;
+    height: 100vh;
+    width: 100vw;
 }
 
 body {
+    /*body formatting*/
     background: var(--bright-blue);
     font-weight: 400;
     font-size: 1em;
     font-family: 'Raleway', Calibri, Arial, sans-serif;
     line-height: 1.25;
+    z-index: 1;
     color: #f5f3ec;
     position: relative;
-    z-index: 1;
 }
 
-a,
-button {
+button, a {
+    /*No outline*/
     outline: none;
 }
 
 a {
+    /*No text-decoration*/
     text-decoration: none;
     color: #0000007F;
 }
@@ -74,7 +80,7 @@ a:focus, a:hover {
 }
 
 .main-container {
-    min-height: 100%;
+    min-height: 100vh;
 }
 
 /* Header */
@@ -82,21 +88,22 @@ a:focus, a:hover {
 .notifications-header {
     padding: 0 2em 0;
     margin: 0 auto;
+    /*Align the text to the center*/
     text-align: center;
 }
 
 .notifications-header h1 {
-    margin: 0;
     line-height: 1.3;
+    margin: 0;
     font-size: 3.5em;
 }
 
 .notifications-header h1 span {
-    display: block;
-    padding: 0.4em 0 0.6em 0.1em;
-    font-size: 46%;
     font-weight: 300;
+    display: block;
+    font-size: 46%;
     opacity: 0.7;
+    padding: 0.4em 0 0.6em 0.1em;
 }
 
 /* To Navigation Style */
@@ -170,21 +177,21 @@ a:focus, a:hover {
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
 }
 
-/* Paragraph in the column */
+/* Paragraph found in the column */
 
 .column p {
-    margin: 0;
     font-size: 1.8em;
+    margin: 0;
     font-weight: 300;
     line-height: 1.5;
     padding: 0 0 0.5em;
 }
 
-/* Small text in the column */
+/* small-text found in the column */
 
-.column p.small {
-    padding: 0.75em 0 1em;
+.column p.small-text {
     line-height: 1.2;
+    padding: 0.75em 0 1em;
     font-weight: 700;
     font-size: 1em;
 }
@@ -236,7 +243,7 @@ a:focus, a:hover {
     -webkit-transition: width 0s 0.3s, opacity 0.3s;
 }
 
-/* Active button on progress styling */
+/* Active button on the progress styling */
 
 .progress-button.active .progress {
     width: 100%;

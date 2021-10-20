@@ -1,6 +1,6 @@
 /* Common, default styles for the notification box */
 
-.ns-box {
+.ns-boxes {
     position: fixed;
     font-size: 90%;
     font-family: 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, sans-serif;
@@ -13,29 +13,31 @@
 }
 
 /* Notification 'on show' styling */
-.ns-box.ns-show {
+.ns-boxes.ns-show {
+    /*Set the pointer-events to auto*/
     pointer-events: auto;
 }
 
 /* Notification link styling */
-.ns-box a {
-    color: inherit;
-    opacity: 0.7;
+.ns-boxes a {
+    opacity: 0.6;
     font-weight: 700;
+    /* The current color can be used indirectly for other color attributes e.g border color */
+    color: inherit;
 }
 
-.ns-box a:hover, .ns-box a:focus
- {
+.ns-boxes a:hover, .ns-boxes a:focus {
     opacity: 1;
 }
 
 /* Visible notification styling */
-.ns-box.ns-show, .ns-box.ns-visible {
+.ns-boxes.ns-show, .ns-boxes.ns-visible {
+    /*Set the pointer-events to auto*/
     pointer-events: auto;
 }
 
 /* Notification paragraph styling */
-.ns-box p {
+.ns-boxes p {
     margin: 0;
 }
 

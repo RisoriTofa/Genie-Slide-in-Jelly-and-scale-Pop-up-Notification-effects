@@ -1,29 +1,26 @@
-/*!
+/*
  * classEditor - It contains class helper functions
  *
  * These functions include:-
  *
- * classEditor.has( element, 'my-current-class' ) -> true/false
+ * classEditor.has( element, 'my-current-class' ) -->>> true or false
  * classEditor.add( element, 'my-new-class' )
  * classEditor.remove( element, 'my-unwanted-class' )
  * classEditor.toggle( element, 'my-class' )
  */
 
-/*jshint browser: true, strict: true, undef: true */
-/*global define: false */
-
 (function (window, document) {
 
     'use strict';
 
-    // class helper functions
+    // class helper functions for the application
 
     function class_Regex(class_name) {
         return new RegExp("(^|\\s+)" + class_name + "(\\s+|$)");
     }
 
-    // classList support for class management
-    // To be fair, the api won't accept at once multiple classes
+    // classList support for the management of classes
+    // The API accepts only one change at once instead of multiple classes
     let hasThisClass, addsClass, removesClass;
 
     if ('classList' in document.documentElement) {
@@ -36,7 +33,8 @@
         removesClass = function (element, Class) {
             element.classList.remove(Class);
         };
-    } else {
+    } /*If not execute this*/
+    else {
         hasThisClass = function (element, Class) {
             return class_Regex(Class).test(element.className);
         };
@@ -56,23 +54,26 @@
     }
 
     let classEditor = {
-        // full names
-        hasClass: hasThisClass,
-        addClass: addsClass,
+        // The function full names
         removeClass: removesClass,
         toggleClass: togglesClass,
-        // short names
-        has: hasThisClass,
-        add: addsClass,
+        addClass: addsClass,
+        hasClass: hasThisClass,
+
+        // short names for the functions above
         remove: removesClass,
-        toggle: togglesClass
+        add: addsClass,
+        toggle: togglesClass,
+        has: hasThisClass
     };
 
     // transport
     if (typeof define === 'function') {
         define(classEditor);
     } else {
-        // browser global
+
+        // It is found in the browser at a global scope
+
         window.classEditor = classEditor;
     }
 
